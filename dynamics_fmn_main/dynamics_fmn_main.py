@@ -8,7 +8,7 @@ def copyFile(source,dest):
         shutil.copyfileobj(src,dst)
 
 
-#Essa função que está dando dor de cabeça
+
 def fileReplaceLines(inFile,outFile,dif):    
     with open(inFile) as input, open(outFile, 'a') as output :
         output.writelines("\n")
