@@ -1,4 +1,4 @@
-#Code to change the title frame #(number) of a dynamics xyz, numbering in the order that you want
+#Code to change the title frame #(number) of a dynamics xyz, numbering in the order that you want. You can use for multiple files
 
 #Functions
 
