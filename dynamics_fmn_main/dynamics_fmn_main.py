@@ -10,13 +10,14 @@ def copyFile(source,dest):
 
 
 def fileReplaceLines(inFile,outFile,dif):    
+    import re
     with open(inFile) as input, open(outFile, 'a') as output :
         output.writelines("\n")
         for line in input:
             cont = 1
-            while cont < dif:            
-                oldString = "Frame " + str(cont)
-                newString = "Frame  {0:d}" .format(cont + dif)            
+            while cont < dif:                            
+                oldString = "Frame {0:d}" .format(cont)
+                newString = "Frame {0:d}" .format(cont + dif)            
                 line = line.replace(oldString, newString)        
                 cont = cont + 1 
             output.writelines(line)
