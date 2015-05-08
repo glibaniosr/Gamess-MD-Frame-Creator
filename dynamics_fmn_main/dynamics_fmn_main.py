@@ -16,7 +16,7 @@ def fileReplaceLines(inFile,outFile,dif):
             cont = 1
             while cont < dif:            
                 oldString = "Frame " + str(cont)
-                newString = "Frame " + str(cont + dif)                 
+                newString = "Frame  {0:d}" .format(cont + dif)            
                 line = line.replace(oldString, newString)        
                 cont = cont + 1 
             output.writelines(line)
@@ -68,6 +68,7 @@ copyFile(filesList[0],finalFileName)
 del filesList[0]
 #Do the thing for the other files
 for fileName,dif in zip(filesList,difsList):
+    dif = int(dif)
     fileReplaceLines(fileName,finalFileName,dif)
 
 
