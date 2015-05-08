@@ -37,33 +37,38 @@ def checkFile(fileName):
 #Starting the code:
 #Get the number of XYZ files
 numberFiles = int(input("Type the number of XYZ files you want to mix: "))+1
-fileNumber = 1
-filesList = []
-
 #Get the name of the final unique file
 finalFileName = input("Enter the name of the final file: ")
 
-#Loop to get all the file names in a list (filesList)
+#Loop to get all the file names in a list (filesList) and all the diferences in frames
+fileNumber = 1
+difNumber = 1
+filesList = []
+difsList = []
+
 while fileNumber < numberFiles :
-    currentFile = input("Type the name of the file number {0:d}: " .format(fileNumber))
-    filesList.append(currentFile)
+    if fileNumber == numberFiles-1:
+        currentFile = input("\nType the name of the file number {0:d}: " .format(fileNumber))
+        filesList.append(currentFile)
+    else:    
+        currentFile = input("\nType the name of the file number {0:d}: " .format(fileNumber))
+        filesList.append(currentFile)
+        currentDif = int(input("\nWhat is the last frame number of the current file \nadded to the last frame number of all the previous files? "))
+        difsList.append(currentDif)
+    
     fileNumber = fileNumber + 1
-
-
-dif = int(input("What is the last frame number of the first file? "))
-
 
 for file in filesList:
     checkFile(file)
     
 
 #Start to modify the files
-for fileName in filesList :
-    #Start with the firstFile, and copy its contents to a new created finalFile
-    if fileName == filesList[0]:
-        copyFile(filesList[0],finalFileName)                 
-    else:
-        fileReplaceLines(fileName,finalFileName,dif)
+#First file just have to be copied to finalFile, and then can be discarded
+copyFile(filesList[0],finalFileName)
+del filesList[0]
+#Do the thing for the other files
+for fileName,dif in zip(filesList,difsList):
+    fileReplaceLines(fileName,finalFileName,dif)
 
 
 #See the content of the final file
