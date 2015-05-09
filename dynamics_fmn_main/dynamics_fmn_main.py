@@ -15,10 +15,12 @@ def fileReplaceLines(inFile,outFile,dif):
         output.writelines("\n")
         for line in input:
             cont = 1
-            while cont < dif:                            
-                oldString = "Frame {0:d}" .format(cont)
-                newString = "Frame {0:d}" .format(cont + dif)            
-                line = line.replace(oldString, newString)        
+            while cont < dif:
+                nframe = int(re.search(r'\d+', line).group())
+                if nframe == cont:                           
+                    oldString = "Frame {0:d}" .format(cont)
+                    newString = "Frame {0:d}" .format(cont + dif)            
+                    line = line.replace(oldString, newString)        
                 cont = cont + 1 
             output.writelines(line)
     
