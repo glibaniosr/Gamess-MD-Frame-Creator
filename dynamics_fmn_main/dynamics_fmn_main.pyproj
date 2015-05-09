@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>9aee5cdc-5a17-4d64-978f-ce3e913d8deb</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>dynamics_fmn_main.py</StartupFile>
+    <StartupFile>xyz_dynamics_frmn.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,7 +23,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="dynamics_fmn_main.py" />
-    <Compile Include="tests.py">
+    <Compile Include="removeBlankLines.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="xyz_dynamics_frmn.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
