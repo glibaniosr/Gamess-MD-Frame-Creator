@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>9aee5cdc-5a17-4d64-978f-ce3e913d8deb</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>xyz_dynamics_frmn.py</StartupFile>
+    <StartupFile>xyz_dynamics_framenumb_changer_.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,7 +26,7 @@
     <Compile Include="removeBlankLines.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="xyz_dynamics_frmn.py">
+    <Compile Include="xyz_dynamics_framenumb_changer_.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
