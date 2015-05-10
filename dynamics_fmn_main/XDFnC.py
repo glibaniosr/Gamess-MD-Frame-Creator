@@ -1,3 +1,4 @@
+#This is the XYZ Dynamics Framenumber Changer, or XDFnC.
 #Code for change the Frame number from any sequential xyz files from a molecular dynamics.
 
 #Functions
