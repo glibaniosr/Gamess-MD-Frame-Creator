@@ -32,11 +32,6 @@ def readLastFrameNumber(fileName,nlines,natoms): #dif is the number of the last 
                 #print(dif)
                 return dif
 
-def removeBlankLines(fileName):
-    import fileinput
-    for line in fileinput.FileInput(fileName,inplace=1):
-        if line.rstrip():
-            return
 
 #Starting the code:
 #Get the number of XYZ files
@@ -55,12 +50,11 @@ while fileNumber < numberFiles :
 for file in filesList:
     checkFile(file)
 
-#Remove
 #Start to modify the files
 #First file just have to be copied to finalFile, and then can be discarded
 copyFile(filesList[0],finalFileName)
 
-#Read the number of atoms and last frame from first file
+#Read the number of atoms and last frame from first file then delete it from the list
 import re
 with open(filesList[0]) as firstFile:
     for i, line in enumerate(firstFile):
@@ -69,14 +63,14 @@ with open(filesList[0]) as firstFile:
             #print(natoms)
 
 nlines = lineCounter(filesList[0])
-dif = readLastFrameNumber(filesList[0],nlines,natoms)
+dif = readLastFrameNumber(filesList[0],nlines,natoms) #The dif variable is the real deal to make the frames a single sequence. It is the diference between the frames of two sequential files
+
 del filesList[0]
 
 
-#Substitute the frame name of the subsequential files in the desired order (one single file)
+#Substitute the frame name of the subsequential files in the desired order (in one single file). And finished the job.
 for currentFile in filesList:
     with open(currentFile) as inputFile, open(finalFileName, "a") as outputFile:
-        #outputFile.writelines("\n")
         nlines = lineCounter(currentFile)
         nextDif = readLastFrameNumber(currentFile, nlines, natoms)
         lines = inputFile.readlines()
@@ -87,10 +81,8 @@ for currentFile in filesList:
             lines[i] = newLine
             cont +=1
         outputFile.writelines(lines)
-        dif += nextDif
+        dif += nextDif 
 
-#with open(finalFileName) as outputFile:
-#    lines = outputFile.read()
-#    print(lines) 
+print("Our job here is done! Shoutout to Gabriel Libânio and Fernanda Takahashi")
   
   
