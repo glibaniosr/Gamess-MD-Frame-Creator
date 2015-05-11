@@ -7,6 +7,7 @@ def copyFile(source,dest):
     import shutil
     with open(source,'r') as src, open(dest, 'w+') as dst:
         shutil.copyfileobj(src,dst)
+    return
 
 def checkFile(fileName):
     import os
@@ -17,12 +18,13 @@ def checkFile(fileName):
     else:
         print("There is no file " + fileName + " in the directory")
         sys.exit("Ending Program")
+    return
 
 def lineCounter(fileName):
     with open(fileName) as inputFile:
             nlines = sum(1 for _ in inputFile)
             #print(nlines)
-            return nlines
+    return nlines
 
 def readLastFrameNumber(fileName,nlines,natoms): #dif is the number of the last frame of the file
     with open(fileName) as inputFile:
@@ -30,7 +32,7 @@ def readLastFrameNumber(fileName,nlines,natoms): #dif is the number of the last 
             if i == (nlines - (natoms+1)):
                 dif = int(re.search(r'\d+', line).group())
                 #print(dif)
-                return dif
+    return dif
 
 
 #Starting the code:
@@ -83,6 +85,6 @@ for currentFile in filesList:
         outputFile.writelines(lines)
         dif += nextDif 
 
-print("Our job here is done! Shoutout to Gabriel Libânio and Fernanda Takahashi")
+print("/nOur job here is done! Shoutout to Gabriel Libanio and Fernanda Takahashi")
   
   

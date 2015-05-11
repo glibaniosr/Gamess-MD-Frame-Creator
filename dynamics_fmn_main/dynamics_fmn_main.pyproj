@@ -22,7 +22,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="dynamics_fmn_main.py" />
     <Compile Include="removeBlankLines.py">
       <SubType>Code</SubType>
     </Compile>
